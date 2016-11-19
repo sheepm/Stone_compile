@@ -14,7 +14,7 @@ public class LexerRunner {
         BufferedReader reader = new BufferedReader(new FileReader("d:\\hello.txt"));
         Lexer lexer = new Lexer(reader);
         for (Token t; (t = lexer.read()) != Token.EOF;){
-            System.out.print("=> " + t.getText());
+            System.out.println("=> "  + t.getText());
         }
     }
 }

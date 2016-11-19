@@ -84,7 +84,7 @@ public class Lexer {
         queue.add(new IdToken(lineNo, Token.EOL));
     }
 
-    protected void addToken(int lineNo, Matcher matcher) {
+    protected void addToken(int lineNo, Matcher matcher) throws ParseException {
         String m = matcher.group(1);
         if (m != null) {  //if not a space
             if (matcher.group(2) == null) {  // if not a annotation
@@ -98,6 +98,8 @@ public class Lexer {
                 }
                 queue.add(token);
             }
+        }else {
+            throw new ParseException("bad reg can not matcher");
         }
     }
 
